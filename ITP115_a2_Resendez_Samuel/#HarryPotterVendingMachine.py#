@@ -1,0 +1,32 @@
+ls
+
+prices = { "a" : 58, "b" : 10,"c" : 7,"d" : 400 }
+ 
+print("Please select an item from the vending machine: ")
+print("a) Butterbeer: 58 knuts")
+print("b) Quill: 10 knuts")
+print("c) The Daily Prophet: 7 knuts")
+print("d) Book of Spells: 400 knuts")
+selection = input(">>")
+while(selection.lower() != "a" and selection.lower() != "b" and selection.lower() !="c" and selection.lower() != "d"):
+    print("Please select an item: ")
+    selection = input(">>")
+print("Excellent. Will you be sharing your purchase on instagram for a 5 knut discount?(y/n): ")
+instagram = input(">>")
+while(instagram.lower() != "y" and instagram.lower() != "n"):
+    instagram = input("Please enter y or n: ")
+galleonCount = input("Please enter number of galleons: ")
+sickleCount = input("Please enter number of sickles: ")
+knutCount = input("Please enter number of sickles: ")
+
+totalKnuts = int(galleonCount)*493 + int(sickleCount)*29 + int(knutCount)
+change = totalKnuts - prices[selection]
+if instagram == "y" :
+    change -= 5
+numberOfGalleons = change // 493
+numberOfSickles = (change % 493) // 29
+numberOfKnuts = change - (493 * numberOfGalleons) - (29 * numberOfSickles)
+print("Here is your change: ")
+print("Galleons:",numberOfGalleons)
+print("Sickles:",numberOfSickles)
+print("numberOfKnuts:",numberOfKnuts)
