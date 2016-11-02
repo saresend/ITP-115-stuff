@@ -12,7 +12,7 @@ def main():
     userWantsToContinue = "y"
     while(userWantsToContinue != "n"):
         fighterOneName = input("Enter fighter #1's name: ")
-        fighterOneType = input("Is figheter #1 a hero or a villain?: ")
+        fighterOneType = input("Is fighter #1 a hero or a villain?: ")
         fighterOneAtk = int(input("Enter fighter #1's attack points: "))
         fighterTwoName = input("Enter superhero #2's name: ")
         fighterTwoType = input("Is fighter #2 a hero or villain?: ")
@@ -30,16 +30,17 @@ def main():
         numRounds = 1
         while(not fighterOne.isDead() and not fighterTwo.isDead()):
             print("============ Round",str(numRounds),"==============")
-            fightOne.loseHealth(fighterTwo.getAttack())
+            fighterOne.loseHealth(fighterTwo.getAttack())
             fighterTwo.loseHealth(fighterOne.getAttack())
             print(fighterOne)
             print(fighterTwo)
+            numRounds += 1
         if(fighterOne.isDead() and fighterTwo.isDead()):
             print("Tie. Both died.")
         elif(fighterOne.isDead()):
-            print(fighterTwo.name,"won!")
+            print(fighterTwo.getName(),"won!")
         else:
-            print(fighterOne.name,"won!")
+            print(fighterOne.getName(),"won!")
         userWantsToContinue = input("Would you like to play again?(y/n): ")
 
 

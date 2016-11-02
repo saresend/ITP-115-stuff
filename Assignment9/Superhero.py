@@ -25,11 +25,13 @@ class Superhero(object):
     def getType(self):
         return self.__hType
     def loseHealth(self,opponentAttack):
-        self.__health = self.__health - opponentAttack
+        self.__health = self.__health - int(opponentAttack)
+        
     def isDead(self):
         if self.__health <= 0:
-            return False
-        else:
             return True
+        else:
+            return False
     def __str__(self):
-        return self.__name,"the",self.__hType,"has",str(self.__attack),"attack points\n and currently has",str(self.__health),"points of health."
+        descrip = self.__name + " the " + self.__hType + " has " + str(self.__attack) + " attack points\n and currently has " + str(self.__health) + " points of health."
+        return descrip
